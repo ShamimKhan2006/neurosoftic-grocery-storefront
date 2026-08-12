@@ -1,11 +1,11 @@
 import React from 'react';
 
-const TopSec = () => {
+const SignUpPage = () => {
     return (
         <div>
-            top hero
+            
         </div>
     );
 };
 
-export default TopSec;
+export default SignUpPage;
