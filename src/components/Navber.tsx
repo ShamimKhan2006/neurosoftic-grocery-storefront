@@ -1,8 +1,10 @@
 "use client";
 
+import { auth } from "@/app/lib/firebase";
+import { onAuthStateChanged, signOut, type User } from "firebase/auth";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 /**
  * ---------------------------------------------------------------------------
@@ -24,19 +26,19 @@ import { useState } from "react";
 // ---- Mock auth hook -------------------------------------------------------
 // Swap this out for real auth (NextAuth, Clerk, your own session context, etc).
 // Shape kept intentionally small: null = signed out, object = signed in.
-interface User {
-  name: string;
-  avatarInitial: string;
-}
+// interface User {
+//   name: string;
+//   avatarInitial: string;
+// }
 
-function useAuth() {
-  const [user, setUser] = useState<User | null>(null);
+// function useAuth() {
+// //   const [user, setUser] = useState<User | null>(null);
 
-  const signIn = () => setUser({ name: "Rafi Ahmed", avatarInitial: "R" });
-  const signOut = () => setUser(null);
+// //   const signIn = () => setUser({ name: "Rafi Ahmed", avatarInitial: "R" });
+// //   const signOut = () => setUser(null);
 
-  return { user, signIn, signOut };
-}
+// //   return { user, signIn, signOut };
+// // }
 
 // ---- Nav config -------------------------------------------------------
 // Home / Products are the core routes. Categories + Deals are the "2 more
@@ -51,8 +53,22 @@ const navLinks = [
 
 export default function Navbar() {
   const pathname = usePathname();
-  const { user, signIn, signOut } = useAuth();
-  const [mobileOpen, setMobileOpen] = useState(false);
+//   const { user, signIn, signOut } = useAuth();
+  const [mobileOpen, setMobileOpen] = useState(false); 
+  const [user,setUser]=useState<User | null >(null)
+
+  useEffect(() => {
+  const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
+
+  return () => unsubscribe();
+}, []); 
+
+
+const handleSighOut=async ()=>{
+  await signOut(auth)
+}
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#E7E1D3] bg-[#FBF8F2]/95 backdrop-blur">
@@ -69,7 +85,7 @@ export default function Navbar() {
             className="text-xl font-semibold tracking-tight text-[#1F4D3A]"
             style={{ fontFamily: "'Fraunces', serif" }}
           >
-            GreenCart
+            Grocery-store
           </span>
         </Link>
 
@@ -122,26 +138,27 @@ export default function Navbar() {
             <>
               <div className="flex items-center gap-2 rounded-full bg-[#1F4D3A]/5 px-2 py-1 pr-3">
                 <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1F4D3A] text-xs font-semibold text-[#FBF8F2]">
-                  {user.avatarInitial}
+                 {user.email?.charAt(0).toUpperCase()}
                 </span>
                 <span className="text-sm font-medium text-[#26302A]">
-                  {user.name}
+                  {user?.displayName}
                 </span>
               </div>
               <button
-                onClick={signOut}
+                onClick={handleSighOut}
                 className="rounded-full border border-[#E4572E]/30 px-4 py-1.5 text-sm font-medium text-[#E4572E] transition-colors hover:bg-[#E4572E] hover:text-white"
               >
                 Log out
               </button>
             </>
           ) : (
+           <Link href={"/auth/signin"}>
             <button
-              onClick={signIn}
+              
               className="rounded-full bg-[#1F4D3A] px-4 py-1.5 text-sm font-medium text-[#FBF8F2] transition-colors hover:bg-[#16382A]"
             >
               Sign in
-            </button>
+            </button></Link>
           )}
         </div>
 
@@ -197,26 +214,21 @@ export default function Navbar() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1F4D3A] text-xs font-semibold text-[#FBF8F2]">
-                    {user.avatarInitial}
+                    {user.email?.charAt(0).toUpperCase()}
                   </span>
                   <span className="text-sm font-medium text-[#26302A]">
-                    {user.name}
+                    {user?.displayName}
                   </span>
                 </div>
                 <button
-                  onClick={signOut}
+                  onClick={handleSighOut}
                   className="rounded-full border border-[#E4572E]/30 px-4 py-1.5 text-sm font-medium text-[#E4572E]"
                 >
                   Log out
                 </button>
               </div>
             ) : (
-              <button
-                onClick={signIn}
-                className="w-full rounded-full bg-[#1F4D3A] px-4 py-2 text-sm font-medium text-[#FBF8F2]"
-              >
-                Sign in
-              </button>
+              <Link href={"/auth/signin"}></Link>
             )}
           </div>
         </div>

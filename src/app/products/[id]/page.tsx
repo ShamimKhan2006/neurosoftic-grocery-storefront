@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 import productsData from "../../../data/product.json";
+import Image from "next/image";
 
 interface Product {
   id: string;
@@ -96,7 +97,7 @@ const Products = () => {
 
             <div className="grid md:grid-cols-2">
               <div className="h-[350px] md:h-[500px]">
-                <img
+                <Image
                   src={selectedProduct.image}
                   alt={selectedProduct.name}
                   className="w-full h-full object-cover"
