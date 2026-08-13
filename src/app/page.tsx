@@ -6,6 +6,7 @@ import TopProductsToday from "@/components/TopProductsToday";
 export default function Home() {
   return (
       <>
+      
       <Hero/> 
      <ProductsPage></ProductsPage> 
      <TopProductsToday/>
