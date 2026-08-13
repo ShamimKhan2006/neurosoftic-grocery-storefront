@@ -1,5 +1,8 @@
+
+
 "use client";
 import { Flame } from "lucide-react";
+import Image from "next/image";
 
 interface Product {
   id: string;
@@ -47,16 +50,19 @@ const topProducts: Product[] = [
 
 const TopProductsToday = () => {
   return (
-    <section className="py-14 bg-[#FAF6F0]">
+    <section className="py-16 bg-[#FBF8F2]">
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
-        <div className="flex items-center gap-2 mb-8">
-          <Flame className="w-6 h-6 text-orange-500" />
+        <div className="flex items-center gap-2 mb-8 animate-[fadeUp_0.5s_cubic-bezier(0.16,1,0.3,1)_both]">
+          <Flame className="w-6 h-6 text-[#E4572E]" />
           <div>
-            <p className="text-xs tracking-widest uppercase text-green-600 font-semibold">
+            <p className="text-xs tracking-widest uppercase text-[#1F4D3A] font-semibold">
               Today&apos;s Pick
             </p>
-            <h2 className="text-2xl md:text-3xl font-bold text-stone-900">
+            <h2
+              className="text-2xl md:text-3xl font-bold text-[#26302A]"
+              style={{ fontFamily: "'Fraunces', serif" }}
+            >
               Top 3 Products
             </h2>
           </div>
@@ -67,10 +73,11 @@ const TopProductsToday = () => {
           {topProducts.map((product, index) => (
             <div
               key={product.id}
-              className="group relative bg-white rounded-3xl border border-stone-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              className="group relative bg-white rounded-3xl border border-[#E7E1D3] overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_25px_50px_-20px_rgba(31,77,58,0.3)] hover:border-[#A8D95E]/40 animate-[fadeUp_0.6s_cubic-bezier(0.16,1,0.3,1)_both]"
+              style={{ animationDelay: `${index * 120}ms` }}
             >
               {/* Rank badge */}
-              <div className="absolute top-4 left-4 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-stone-900 text-white text-sm font-bold shadow-md">
+              <div className="absolute top-4 left-4 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-[#1F4D3A] text-[#A8D95E] text-sm font-bold shadow-md transition-transform duration-300 group-hover:scale-110">
                 {index + 1}
               </div>
 
@@ -79,23 +86,24 @@ const TopProductsToday = () => {
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1F4D3A]/15 via-transparent to-transparent" />
               </div>
 
               {/* Details */}
               <div className="p-5">
-                <span className="text-xs bg-green-50 text-green-700 px-2 py-1 rounded-full font-medium">
+                <span className="text-xs bg-[#A8D95E]/15 text-[#1F4D3A] px-2 py-1 rounded-full font-medium">
                   {product.category}
                 </span>
 
-                <h3 className="font-bold text-lg text-stone-900 mt-3">
+                <h3 className="font-bold text-lg text-[#26302A] mt-3">
                   {product.name}
                 </h3>
 
                 <div className="flex items-center gap-1 mt-1">
-                  <span className="text-yellow-500 text-sm">⭐</span>
-                  <span className="text-sm text-stone-600">{product.rating}</span>
+                  <span className="text-[#E4572E] text-sm">⭐</span>
+                  <span className="text-sm text-[#26302A]/70">{product.rating}</span>
                   <span className="text-xs text-stone-400 ml-1">
                     · {product.unit}
                   </span>
@@ -103,7 +111,7 @@ const TopProductsToday = () => {
 
                 <div className="flex items-center justify-between mt-4">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-xl font-bold text-stone-900">
+                    <span className="text-xl font-bold text-[#26302A]">
                       ৳{product.salePrice}
                     </span>
                     {product.salePrice < product.price && (
@@ -113,7 +121,7 @@ const TopProductsToday = () => {
                     )}
                   </div>
 
-                  <button className="bg-green-600 hover:bg-green-700 text-white text-xs font-medium px-4 py-2 rounded-full transition-colors">
+                  <button className="bg-[#1F4D3A] hover:bg-[#16382A] text-[#FBF8F2] text-xs font-medium px-4 py-2 rounded-full transition-all duration-200 hover:shadow-[0_6px_16px_-4px_rgba(31,77,58,0.5)] active:scale-95">
                     Add
                   </button>
                 </div>
@@ -122,6 +130,16 @@ const TopProductsToday = () => {
           ))}
         </div>
       </div>
+
+      <style>{`
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(16px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          * { animation: none !important; }
+        }
+      `}</style>
     </section>
   );
 };

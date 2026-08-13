@@ -9,7 +9,7 @@
     "unit": "1 kg",
     "stock": 45,
     "rating": 4.8,
-    "image": "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1546094096-0df4bcaaa337?q=80&w=1200&auto=format&fit=crop",
     "isFresh": true,
     "isOrganic": true,
     "description": "Farm-fresh organic red tomatoes, naturally grown and packed with vitamins."
@@ -24,7 +24,7 @@
     "unit": "1 kg",
     "stock": 30,
     "rating": 4.9,
-    "image": "https://images.unsplash.com/photo-1619546813926-a78fa6372cd2?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?q=80&w=1200&auto=format&fit=crop",
     "isFresh": true,
     "isOrganic": true,
     "description": "Crispy, juicy, and fresh green apples directly sourced from premium orchards."
@@ -39,7 +39,7 @@
     "unit": "1 Liter",
     "stock": 20,
     "rating": 4.7,
-    "image": "https://images.unsplash.com/photo-1563636619-e9143da7973b?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1563636619-e9143da7973b?q=80&w=1200&auto=format&fit=crop",
     "isFresh": true,
     "isOrganic": false,
     "description": "100% pure and chilled pasteurized cow milk, rich in calcium and protein."
@@ -54,7 +54,7 @@
     "unit": "12 pcs",
     "stock": 50,
     "rating": 4.9,
-    "image": "https://images.unsplash.com/photo-1516467508483-a7212febe31a?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?q=80&w=1200&auto=format&fit=crop",
     "isFresh": true,
     "isOrganic": true,
     "description": "Organic, cage-free brown eggs packed daily for ultimate freshness."
@@ -69,7 +69,7 @@
     "unit": "1 Dozen",
     "stock": 35,
     "rating": 4.6,
-    "image": "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?q=80&w=1200&auto=format&fit=crop",
     "isFresh": true,
     "isOrganic": false,
     "description": "Naturally ripened, sweet, and energy-packed yellow bananas."
@@ -84,7 +84,7 @@
     "unit": "500 gm",
     "stock": 18,
     "rating": 4.8,
-    "image": "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1614336315084-1e2e558a1b1e?q=80&w=1200&auto=format&fit=crop",
     "isFresh": true,
     "isOrganic": true,
     "description": "Nutrient-rich, crisp green broccoli grown without harmful pesticides."
@@ -99,7 +99,7 @@
     "unit": "1 kg",
     "stock": 40,
     "rating": 4.5,
-    "image": "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=1200&auto=format&fit=crop",
     "isFresh": true,
     "isOrganic": false,
     "description": "Crunchy and sweet carrots, ideal for salads, cooking, and juices."
@@ -114,7 +114,7 @@
     "unit": "400 gm",
     "stock": 25,
     "rating": 4.7,
-    "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1598373182133-52452f7691ef?q=80&w=1200&auto=format&fit=crop",
     "isFresh": true,
     "isOrganic": true,
     "description": "Soft and healthy whole wheat bread baked fresh every morning."
@@ -129,7 +129,7 @@
     "unit": "250 gm",
     "stock": 15,
     "rating": 4.9,
-    "image": "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1543528176-61b239494933?q=80&w=1200&auto=format&fit=crop",
     "isFresh": true,
     "isOrganic": true,
     "description": "Sweet, vibrant red strawberries hand-picked from organic farms."
@@ -144,7 +144,7 @@
     "unit": "500 ml",
     "stock": 22,
     "rating": 4.8,
-    "image": "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1613478223719-2ab802602423?q=80&w=1200&auto=format&fit=crop",
     "isFresh": true,
     "isOrganic": true,
     "description": "100% pure fresh-squeezed orange juice with no added sugar or preservatives."
@@ -159,7 +159,7 @@
     "unit": "2 pcs",
     "stock": 12,
     "rating": 4.6,
-    "image": "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?q=80&w=1200&auto=format&fit=crop",
     "isFresh": true,
     "isOrganic": true,
     "description": "Rich, creamy, and healthy ripe avocados loaded with good fats."
@@ -174,7 +174,7 @@
     "unit": "500 gm",
     "stock": 28,
     "rating": 4.5,
-    "image": "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1583663848692-3a3d9c8b1b1f?q=80&w=1200&auto=format&fit=crop",
     "isFresh": true,
     "isOrganic": false,
     "description": "Crisp green capsicum, perfect for stir-fries, pizza toppings, and salads."
@@ -189,7 +189,7 @@
     "unit": "500 gm",
     "stock": 16,
     "rating": 4.9,
-    "image": "https://images.unsplash.com/photo-1587049352847-81a56d773cae?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1587049352847-81a56d773cae?q=80&w=1200&auto=format&fit=crop",
     "isFresh": false,
     "isOrganic": true,
     "description": "100% pure and unprocessed raw mountain honey with therapeutic benefits."
@@ -204,7 +204,7 @@
     "unit": "1 kg",
     "stock": 60,
     "rating": 4.4,
-    "image": "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cf?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1580201092675-a0a6a6cafbb1?q=80&w=1200&auto=format&fit=crop",
     "isFresh": true,
     "isOrganic": false,
     "description": "Essential kitchen staple red onions with strong flavor and crisp texture."
@@ -219,7 +219,7 @@
     "unit": "400 gm",
     "stock": 19,
     "rating": 4.8,
-    "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=1200&auto=format&fit=crop",
     "isFresh": true,
     "isOrganic": true,
     "description": "Thick, creamy Greek yogurt rich in probiotics and high in protein."

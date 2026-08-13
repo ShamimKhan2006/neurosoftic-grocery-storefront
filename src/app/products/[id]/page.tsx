@@ -4,6 +4,7 @@ import { X } from "lucide-react";
 import productsData from "../../../data/product.json";
 import Image from "next/image";
 
+
 interface Product {
   id: string;
   name: string;
@@ -46,7 +47,7 @@ const Products = () => {
                 className="relative aspect-square overflow-hidden cursor-pointer"
                 onClick={() => setSelectedProduct(product)}
               >
-                <img
+                <Image
                   src={product.image}
                   alt={product.name}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
