@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <Hero />
 
-      <FadeInSection>
+      <FadeInSection delay={200}>
         <ProductsPage />
       </FadeInSection>
 

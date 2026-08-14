@@ -3,7 +3,7 @@
 import { auth } from "@/app/lib/firebase";
 import { onAuthStateChanged, signOut, type User } from "firebase/auth";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ShoppingCart } from "lucide-react";
 
@@ -27,7 +27,7 @@ interface CartItem {
 
 export default function Navbar() {
   const pathname = usePathname();
-
+ const router=useRouter()
   const [mobileOpen, setMobileOpen] = useState(false);
   const [user, setUser] = useState<User | null>(null);
   const [balance] = useState<number>(120.5);
@@ -86,9 +86,10 @@ export default function Navbar() {
   const handleSignOut = async () => {
     await signOut(auth);
 
-    // Optional: logout করলে cart clear করতে চাইলে
-    // localStorage.removeItem("cart");
-    // window.dispatchEvent(new Event("cartUpdated"));
+    document.cookie =
+      "firebaseToken=; path=/; max-age=0; SameSite=Lax";
+
+    router.push("/auth/signin");
   };
 
   return (

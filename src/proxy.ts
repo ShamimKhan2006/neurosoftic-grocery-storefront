@@ -1,28 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export function proxy(request: NextRequest) {
-  const { pathname } = request.nextUrl;
-
-  const protectedRoutes = [
-    "/products",
-    "/dashboard",
-    "/orders",
-  ];
-
-  const isProtectedRoute = protectedRoutes.some((route) =>
-    pathname.startsWith(route)
-  );
-
-  if (!isProtectedRoute) {
-    return NextResponse.next();
-  }
-
   const token = request.cookies.get("firebaseToken")?.value;
+
+  console.log("Proxy:", request.nextUrl.pathname);
+  console.log("Token:", token ? "Found" : "Not Found");
 
   if (!token) {
     const loginUrl = new URL("/auth/signin", request.url);
 
-    loginUrl.searchParams.set("redirect", pathname);
+    loginUrl.searchParams.set(
+      "redirect",
+      request.nextUrl.pathname
+    );
 
     return NextResponse.redirect(loginUrl);
   }
@@ -32,8 +22,8 @@ export function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
+    "/products",
     "/products/:path*",
     "/dashboard/:path*",
-    "/orders/:path*",
   ],
 };
