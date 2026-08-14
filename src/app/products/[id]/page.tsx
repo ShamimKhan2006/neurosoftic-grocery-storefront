@@ -2,8 +2,6 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 import productsData from "../../../data/product.json";
-import Image from "next/image";
-
 
 interface Product {
   id: string;
@@ -29,36 +27,34 @@ const Products = () => {
     <section className="py-10 bg-stone-50">
       <div className="max-w-6xl mx-auto px-4">
 
-        {/* Featured Products */}
         <div className="text-center mb-8">
           <p className="text-green-600 font-medium">Fresh & Healthy</p>
           <h2 className="text-3xl font-bold text-stone-900">Featured Products</h2>
         </div>
 
-        {/* Products */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
           {products.map((product) => (
             <div
               key={product.id}
               className="bg-white rounded-2xl border border-stone-200 overflow-hidden"
             >
-              {/* IMAGE */}
+              {/* IMAGE - only this opens the modal */}
               <div
+                role="button"
+                tabIndex={0}
                 className="relative aspect-square overflow-hidden cursor-pointer"
-                onClick={() => setSelectedProduct(product)}
+                onClick={() => {
+                  console.log("image clicked", product.name);
+                  setSelectedProduct(product);
+                }}
               >
-                <Image
+                <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
-                  onClick={() => {
-  console.log("clicked", product);
-  setSelectedProduct(product);
-}}
+                  className="w-full h-full object-cover pointer-events-none hover:scale-105 transition-transform duration-300"
                 />
               </div>
 
-              {/* CARD DETAILS */}
               <div className="p-4">
                 <span className="text-xs bg-green-50 text-green-700 px-2 py-1 rounded-full">
                   {product.category}
@@ -79,7 +75,6 @@ const Products = () => {
         </div>
       </div>
 
-      {/* ================= MODAL ================= */}
       {selectedProduct && (
         <div
           className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
@@ -98,7 +93,7 @@ const Products = () => {
 
             <div className="grid md:grid-cols-2">
               <div className="h-[350px] md:h-[500px]">
-                <Image
+                <img
                   src={selectedProduct.image}
                   alt={selectedProduct.name}
                   className="w-full h-full object-cover"

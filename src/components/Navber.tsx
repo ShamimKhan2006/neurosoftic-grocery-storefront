@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import { auth } from "@/app/lib/firebase";
@@ -7,8 +5,6 @@ import { onAuthStateChanged, signOut, type User } from "firebase/auth";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-
-
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -21,40 +17,45 @@ export default function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [user, setUser] = useState<User | null>(null);
+  const [balance] = useState<number>(120.5);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
     });
-
     return () => unsubscribe();
   }, []);
 
-  const handleSighOut = async () => {
+  const handleSignOut = async () => {
     await signOut(auth);
   };
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#E7E1D3] bg-[#FBF8F2]/95 backdrop-blur">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
         {/* Logo */}
-        <Link href="/" className="group flex items-center gap-2">
+        <Link href="/" className="group flex shrink-0 items-center gap-2">
           <span
-            className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1F4D3A] text-[#A8D95E] transition-transform duration-300 group-hover:rotate-[-8deg] group-hover:scale-105"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-[#1F4D3A] to-[#3C7A5B] text-[#A8D95E] shadow-md transition-all duration-500 group-hover:rotate-[18deg] group-hover:scale-110"
             aria-hidden
           >
             🌿
           </span>
-          <span
-            className="text-xl font-semibold tracking-tight text-[#1F4D3A]"
-            style={{ fontFamily: "'Fraunces', serif" }}
-          >
-            FreshCart
+          <span className="flex flex-col leading-none">
+            <span
+              className="bg-gradient-to-r from-[#1F4D3A] to-[#3C7A5B] bg-clip-text text-xl font-semibold tracking-tight text-transparent transition-all duration-300 group-hover:tracking-wide"
+              style={{ fontFamily: "'Fraunces', serif" }}
+            >
+              Harvestly
+            </span>
+            <span className="text-[10px] font-medium tracking-wide text-[#A8D95E] mt-0.5">
+              Organic &amp; Fresh
+            </span>
           </span>
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden items-center gap-1 md:flex">
+        <ul className="hidden flex-1 items-center justify-center gap-1 md:flex">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -70,7 +71,7 @@ export default function Navbar() {
                   {link.label}
                 </Link>
                 <span
-                  className={`absolute -bottom-[1px] left-3 right-3 h-[2px] rounded-full bg-[#A8D95E] transition-all duration-300 origin-left ${
+                  className={`absolute -bottom-[1px] left-3 right-3 h-[2px] rounded-full bg-gradient-to-r from-[#A8D95E] to-[#3C7A5B] shadow-[0_0_8px_rgba(168,217,94,0.6)] transition-all duration-300 origin-left ${
                     isActive ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
                   }`}
                 />
@@ -91,7 +92,7 @@ export default function Navbar() {
                 Dashboard
               </Link>
               <span
-                className={`absolute -bottom-[1px] left-3 right-3 h-[2px] rounded-full bg-[#A8D95E] transition-all duration-300 origin-left ${
+                className={`absolute -bottom-[1px] left-3 right-3 h-[2px] rounded-full bg-gradient-to-r from-[#A8D95E] to-[#3C7A5B] transition-all duration-300 origin-left ${
                   pathname === "/dashboard" ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
                 }`}
               />
@@ -103,6 +104,9 @@ export default function Navbar() {
         <div className="hidden items-center gap-3 md:flex">
           {user ? (
             <>
+              <span className="flex items-center gap-1.5 rounded-full bg-[#A8D95E]/15 border border-[#A8D95E]/40 px-3 py-1.5 text-sm font-bold text-[#1F4D3A]">
+                💰 ${balance.toFixed(2)}
+              </span>
               <div className="flex items-center gap-2 rounded-full bg-[#1F4D3A]/5 px-2 py-1 pr-3 transition-colors hover:bg-[#1F4D3A]/10">
                 <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1F4D3A] text-xs font-semibold text-[#FBF8F2]">
                   {user.email?.charAt(0).toUpperCase()}
@@ -112,7 +116,7 @@ export default function Navbar() {
                 </span>
               </div>
               <button
-                onClick={handleSighOut}
+                onClick={handleSignOut}
                 className="rounded-full border border-[#E4572E]/30 px-4 py-1.5 text-sm font-medium text-[#E4572E] transition-all duration-200 hover:bg-[#E4572E] hover:text-white hover:-translate-y-0.5 active:translate-y-0"
               >
                 Log out
@@ -120,7 +124,7 @@ export default function Navbar() {
             </>
           ) : (
             <Link href={"/auth/signin"}>
-              <button className="rounded-full bg-[#1F4D3A] px-4 py-1.5 text-sm font-medium text-[#FBF8F2] transition-all duration-200 hover:bg-[#16382A] hover:-translate-y-0.5 hover:shadow-[0_8px_18px_-6px_rgba(31,77,58,0.5)] active:translate-y-0">
+              <button className="relative overflow-hidden rounded-full bg-[#1F4D3A] px-4 py-1.5 text-sm font-medium text-[#FBF8F2] transition-all duration-200 hover:bg-[#16382A] hover:-translate-y-0.5 hover:shadow-[0_8px_18px_-6px_rgba(31,77,58,0.5)] active:translate-y-0">
                 Sign in
               </button>
             </Link>
@@ -129,13 +133,27 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="flex h-9 w-9 items-center justify-center rounded-md text-[#1F4D3A] md:hidden"
+          className="relative flex h-9 w-9 items-center justify-center rounded-full transition-colors hover:bg-[#1F4D3A]/10 md:hidden"
           onClick={() => setMobileOpen((o) => !o)}
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
         >
-          <span className="text-2xl leading-none transition-transform duration-200">
-            {mobileOpen ? "×" : "☰"}
+          <span className="relative flex h-4 w-5 flex-col justify-between">
+            <span
+              className={`h-[2px] w-full rounded-full bg-[#1F4D3A] transition-all duration-300 ${
+                mobileOpen ? "translate-y-[7px] rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`h-[2px] w-full rounded-full bg-[#1F4D3A] transition-all duration-300 ${
+                mobileOpen ? "opacity-0" : "opacity-100"
+              }`}
+            />
+            <span
+              className={`h-[2px] w-full rounded-full bg-[#1F4D3A] transition-all duration-300 ${
+                mobileOpen ? "-translate-y-[7px] -rotate-45" : ""
+              }`}
+            />
           </span>
         </button>
       </nav>
@@ -183,12 +201,17 @@ export default function Navbar() {
                   <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1F4D3A] text-xs font-semibold text-[#FBF8F2]">
                     {user.email?.charAt(0).toUpperCase()}
                   </span>
-                  <span className="text-sm font-medium text-[#26302A]">
-                    {user?.displayName}
-                  </span>
+                  <div className="flex flex-col">
+                    <span className="text-sm font-medium text-[#26302A]">
+                      {user?.displayName}
+                    </span>
+                    <span className="text-xs font-bold text-[#1F4D3A]">
+                      💰 ${balance.toFixed(2)}
+                    </span>
+                  </div>
                 </div>
                 <button
-                  onClick={handleSighOut}
+                  onClick={handleSignOut}
                   className="rounded-full border border-[#E4572E]/30 px-4 py-1.5 text-sm font-medium text-[#E4572E] transition-colors hover:bg-[#E4572E] hover:text-white"
                 >
                   Log out

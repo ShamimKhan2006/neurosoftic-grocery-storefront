@@ -84,7 +84,7 @@
     "unit": "500 gm",
     "stock": 18,
     "rating": 4.8,
-    "image": "https://images.unsplash.com/photo-1614336315084-1e2e558a1b1e?q=80&w=1200&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1200&auto=format&fit=crop",
     "isFresh": true,
     "isOrganic": true,
     "description": "Nutrient-rich, crisp green broccoli grown without harmful pesticides."
@@ -174,7 +174,7 @@
     "unit": "500 gm",
     "stock": 28,
     "rating": 4.5,
-    "image": "https://images.unsplash.com/photo-1583663848692-3a3d9c8b1b1f?q=80&w=1200&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1200&auto=format&fit=crop",
     "isFresh": true,
     "isOrganic": false,
     "description": "Crisp green capsicum, perfect for stir-fries, pizza toppings, and salads."
@@ -189,7 +189,7 @@
     "unit": "500 gm",
     "stock": 16,
     "rating": 4.9,
-    "image": "https://images.unsplash.com/photo-1587049352847-81a56d773cae?q=80&w=1200&auto=format&fit=crop",
+   "image": "https://images.unsplash.com/photo-1603046891744-1f76eb10aecf?q=80&w=1200&auto=format&fit=crop",
     "isFresh": false,
     "isOrganic": true,
     "description": "100% pure and unprocessed raw mountain honey with therapeutic benefits."

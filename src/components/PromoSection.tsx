@@ -45,7 +45,7 @@ const PromoSection = () => {
             </h2>
 
             <Link
-              href="#"
+              href="/products"
               className="relative z-10 mt-5 flex w-fit items-center gap-2 border-b-2 border-[#C9A24B] pb-1 text-sm font-semibold text-[#D9B968] transition-all duration-300 group-hover:gap-3"
             >
               Shop now
