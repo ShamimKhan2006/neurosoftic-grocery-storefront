@@ -11,7 +11,7 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "Products", href: "/products" },
   { label: "Categories", href: "/categories" },
-  { label: "Deals", href: "/deals" },
+  { label: "About Us", href: "/about" },
 ] as const;
 
 interface CartItem {
