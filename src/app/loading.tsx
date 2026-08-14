@@ -14,7 +14,7 @@ export default function Loading() {
         {/* Loading text */}
         <div className="text-center">
           <p className="text-sm font-semibold text-[#1F4D3A]">
-            Fresh items loading...
+            Fresh items loading..
           </p>
 
           <div className="mt-2 flex justify-center gap-1">
