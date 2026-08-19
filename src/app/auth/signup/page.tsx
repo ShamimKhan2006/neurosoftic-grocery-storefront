@@ -33,7 +33,7 @@ export default function RegisterPage() {
       setLoading(true);
       await createUserWithEmailAndPassword(auth, email, password);
       toast.success("Registration successful!");
-      router.push("/auth/signin");
+      router.push("/");
     } catch (error: any) {
       if (error.code === "auth/email-already-in-use") {
         setError("This email is already registered.");

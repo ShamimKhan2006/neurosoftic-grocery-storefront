@@ -32,7 +32,7 @@ export default function LoginPage() {
       document.cookie = `firebaseToken=${token}; path=/; max-age=3600; SameSite=Lax`;
 
       toast.success("Login successful!");
-      router.push("/products");
+      router.push("/");
     } catch (error: any) {
       console.error("Login Error:", error);
 
@@ -69,7 +69,7 @@ export default function LoginPage() {
 
       console.log("Google User:", result.user);
       toast.success("Google login successful!");
-      router.push("/products");
+      router.push("/");
     } catch (error: any) {
       console.error("Google Login Error:", error);
 

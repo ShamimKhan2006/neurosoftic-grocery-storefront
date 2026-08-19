@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ShoppingCart } from "lucide-react";
+import { CustomTrigger } from "./CustomTrigger";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -83,7 +84,7 @@ export default function Navbar() {
     };
   }, []);
 
-  const handleSignOut = async () => {
+   const handleSignOut = async () => {
     await signOut(auth);
 
     document.cookie =
@@ -201,22 +202,19 @@ export default function Navbar() {
 
               {/* User */}
               <div className="flex items-center gap-2 rounded-full bg-[#1F4D3A]/5 px-2 py-1 pr-3 transition-colors hover:bg-[#1F4D3A]/10">
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1F4D3A] text-xs font-semibold text-[#FBF8F2]">
+                {/* <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1F4D3A] text-xs font-semibold text-[#FBF8F2]">
                   {user.email?.charAt(0).toUpperCase()}
-                </span>
-
-                <span className="max-w-[120px] truncate text-sm font-medium text-[#26302A]">
-                  {user.displayName || user.email}
-                </span>
+                </span> */}
+               <CustomTrigger handleSignOut={handleSignOut}></CustomTrigger>
               </div>
 
               {/* Logout */}
-              <button
+              {/* <button
                 onClick={handleSignOut}
                 className="rounded-full border border-[#E4572E]/30 px-4 py-1.5 text-sm font-medium text-[#E4572E] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#E4572E] hover:text-white active:translate-y-0"
               >
                 Log out
-              </button>
+              </button> */}
             </>
           ) : (
             <Link href="/auth/signin">
@@ -323,22 +321,22 @@ export default function Navbar() {
                   </span>
 
                   <div className="flex flex-col">
-                    <span className="max-w-[150px] truncate text-sm font-medium text-[#26302A]">
+                    {/* <span className="max-w-[150px] truncate text-sm font-medium text-[#26302A]">
                       {user.displayName || user.email}
-                    </span>
-
+                    </span> */}
+                     <CustomTrigger handleSignOut={handleSignOut}/>
                     <span className="text-xs font-bold text-[#1F4D3A]">
                       💰 ${balance.toFixed(2)}
                     </span>
                   </div>
                 </div>
 
-                <button
+                {/* <button
                   onClick={handleSignOut}
                   className="rounded-full border border-[#E4572E]/30 px-4 py-1.5 text-sm font-medium text-[#E4572E] transition-colors hover:bg-[#E4572E] hover:text-white"
                 >
                   Log out
-                </button>
+                </button> */}
               </div>
             ) : (
               <Link
