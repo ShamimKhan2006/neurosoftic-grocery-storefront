@@ -76,7 +76,7 @@ export default function LoginPage() {
       if (error.code === "auth/popup-closed-by-user") {
         toast.error("Google login cancelled.");
       } else {
-        toast.error("Google login failed. Please try again.");
+        toast.error("Google login failed. Please try again.");+++++++++++
       }
     } finally {
       setLoading(false);
@@ -84,14 +84,14 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex bg-[#FBF8F2] relative overflow-hidden">
+    <div className=" flex bg-[#FBF8F2] relative overflow-hidden">
 
       {/* ===================== LEFT SIDE - IMAGE (GROCERY) ===================== */}
-      <div className="hidden lg:block lg:w-1/2 relative overflow-hidden">
+      <div className="hidden lg:block lg:w-1/2 relative overflow-hidden m-10 rounded-3xl">
         <img
           src="https://images.unsplash.com/photo-1606824722920-4c652a70f348"
           alt="Fresh grocery produce"
-          className="absolute inset-0 h-full w-full object-cover animate-[imgZoom_16s_ease-in-out_infinite_alternate]"
+          className="absolute inset-0   animate-[imgZoom_16s_ease-in-out_infinite_alternate]"
         />
 
         {/* Overlay gradient for a premium feel */}
