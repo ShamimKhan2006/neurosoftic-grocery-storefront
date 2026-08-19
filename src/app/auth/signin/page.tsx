@@ -76,7 +76,7 @@ export default function LoginPage() {
       if (error.code === "auth/popup-closed-by-user") {
         toast.error("Google login cancelled.");
       } else {
-        toast.error("Google login failed. Please try again.");+++++++++++
+        toast.error("Google login failed. Please try again.");
       }
     } finally {
       setLoading(false);

@@ -87,7 +87,7 @@ export default function RegisterPage() {
             Shop Fresh, Live Well.
           </h2>
           <p className="text-white/80 mt-3 max-w-sm">
-            Create an account and get access to the freshest groceries, delivered to your door.
+            Create an account and get acces to the freshest groceries, delivered to your door.
           </p>
         </div>
 
